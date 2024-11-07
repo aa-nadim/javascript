@@ -12,13 +12,60 @@
         <a href="#" class="user-icon">👤</a>
       </div>
 
-      <a href="#" class="nav-item">🌎 United States</a>
+      <a href="#" id="openModalBtn" class="nav-item">🌎 United States</a>
       <a href="#" class="nav-item">Trip Boards</a>
       <a href="#" class="nav-item">List your property</a>
       <a href="#" class="nav-item">Help</a>
       <a href="#" class="nav-item">My trips</a>
       <a href="#" class="nav-item">Sign in</a>
     </nav>
+    <!-- modal -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+          <div class="modal-header">
+            <span class="close-modal-btn">&times;</span>
+            <h2 class="modal-title">Display settings</h2>
+          </div>
+          
+          <div class="warning-message">
+            <div style="display: flex; justify-content: flex-start; padding:0 2px; gap:20px;">
+              <span>⚠️</span>
+              <h4>Changing your region could change your rewards program</h4>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <p>To stay with your current rewards program keep your region the same. One Key is currently only available in select regions.</p>
+          </div>
+          
+          <form>
+              <div class="form-group">
+                  <div class="select-wrapper">
+                    <!-- <label class="form-label">Region</label> -->
+
+                    <div class="form-select-box">
+                      <label class="form-label">Region</label>
+                      <select class="form-select">
+                        <option value="portugal">Portugal</option>
+                      </select>
+                    </div>
+                     
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                  <label class="form-label">Currency</label>
+                  <div class="select-wrapper">
+                      <select class="form-select">
+                          <option value="eur">EUR</option>
+                      </select>
+                  </div>
+              </div>
+              
+              <button type="submit" class="save-button">Save</button>
+          </form>
+      </div>
+  </div>
 
     <main class="container">
       <!-- for Desktop  -->
@@ -26,7 +73,10 @@
         <a href="#" class="back-link"> ← See all properties </a>
         <div class="actions">
           <button class="btn">⎘ Share</button>
-          <button class="btn">♡ Save</button>
+          <button id="heartButton"  class="heart-button btn">
+            <span class="heart-icon">♡</span>
+            <p>Save</p>
+          </button>
         </div>
       </section>
 
@@ -59,8 +109,8 @@
 
         <div class="mobile-gallery-controls">
           <button class="mobile-control-button" aria-label="Share">↗</button>
-          <button class="mobile-control-button" aria-label="Add to favorites">
-            ♡
+          <button id="heartButtonMobile" class="mobile-control-button">
+            <span class="heart-icon">♡</span>
           </button>
         </div>
 
@@ -845,5 +895,7 @@
         </section>
       </div>
     </main>
+
+    <script src="index.js"></script>
   </body>
 </html>
