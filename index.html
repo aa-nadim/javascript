@@ -39,28 +39,35 @@
           </div>
           
           <form>
-              <div class="form-group">
-                  <div class="select-wrapper">
-                    <!-- <label class="form-label">Region</label> -->
-
-                    <div class="form-select-box">
-                      <label class="form-label">Region</label>
-                      <select class="form-select">
-                        <option value="portugal">Portugal</option>
-                      </select>
-                    </div>
-                     
+            <div class="form-group">
+              <div class="form-dropdown">
+                  <button type="button" class="form-dropdown-button">
+                      <div>
+                          <p class="form-label">Region</p>
+                          <p>Portugal</p>
+                      </div>
+                      <span class="form-dropdown-arrow"></span>
+                  </button>
+                  <div class="form-dropdown-options">
+                      <div class="form-dropdown-option">Portugal</div>
                   </div>
               </div>
+            </div>
               
-              <div class="form-group">
-                  <label class="form-label">Currency</label>
-                  <div class="select-wrapper">
-                      <select class="form-select">
-                          <option value="eur">EUR</option>
-                      </select>
+            <div class="form-group">
+              <div class="form-dropdown">
+                  <button type="button" class="form-dropdown-button">
+                      <div>
+                          <p class="form-label">Currency</p>
+                          <p>EUR</p>
+                      </div>
+                      <span class="form-dropdown-arrow"></span>
+                  </button>
+                  <div class="form-dropdown-options">
+                      <div class="form-dropdown-option">EUR</div>
                   </div>
               </div>
+            </div>
               
               <button type="submit" class="save-button">Save</button>
           </form>

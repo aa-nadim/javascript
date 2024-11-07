@@ -20,7 +20,23 @@ window.onclick = function(event) {
     }
 };
 
+// inner modal functionality
+const dropdownButtons = document.querySelectorAll('.form-dropdown-button');
+        const dropdownOptions = document.querySelectorAll('.form-dropdown-options');
 
+        dropdownButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                dropdownOptions[index].classList.toggle('show');
+            });
+        });
+
+        window.addEventListener('click', (event) => {
+            dropdownOptions.forEach((options, index) => {
+                if (!event.target.matches('.form-dropdown-button') && !options.contains(event.target)) {
+                    options.classList.remove('show');
+                }
+            });
+        });
 
 
 // Get both desktop and mobile buttons and their icons
