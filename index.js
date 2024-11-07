@@ -77,6 +77,7 @@ const regionCurrencyMap = {
   // Update the currency options when a region is selected
   regionOptions.addEventListener('click', (event) => {
     const selectedRegionText = event.target.getAttribute('data-region');
+    console.log('selectedRegion', selectedRegion);
     if (selectedRegionText) {
       // Update selected region text
       selectedRegion.textContent = selectedRegionText;
@@ -152,4 +153,45 @@ updateHeartButtons();
 
 
 
+// Initialize slide index
+let slideIndex = 1;
+showSlides(slideIndex);
 
+// Open modal
+document.getElementById("openSlideshowModalBtn").onclick = function() {
+  document.getElementById("openSlideshowModal").style.display = "flex";
+}
+
+// Close modal
+function closeModal() {
+  document.getElementById("openSlideshowModal").style.display = "none";
+}
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Display current slide
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+// Show the slides
+function showSlides(n) {
+  let slides = document.getElementsByClassName("mySlides");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slides[slideIndex-1].style.display = "block";  
+}
+
+// Close modal when clicking outside of the modal content
+window.onclick = function(event) {
+  const modal = document.getElementById("openSlideshowModal");
+  if (event.target === modal) {
+    closeModal();
+  }
+}
