@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <title>Travelers Form</title>
+ <style>
+  .travelers-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   width: 300px;
+  }
+
+  .row {
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
+  }
+
+  .row label {
+   margin-right: 10px;
+  }
+
+  .row input[type="number"] {
+   width: 50px;
+   text-align: center;
+  }
+
+  .row button {
+   border: none;
+   background-color: #ccc;
+   padding: 5px 10px;
+   border-radius: 5px;
+   cursor: pointer;
+  }
+
+  .row button:disabled {
+   background-color: #ddd;
+   cursor: not-allowed;
+  }
+
+  .row button:hover {
+   background-color: #bbb;
+  }
+
+  .done-button {
+   background-color: #007bff;
+   color: #fff;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+  }
+
+  .done-button:hover {
+   background-color: #0062cc;
+  }
+
+  .travelers-section-position-relative {
+   position: relative;
+   width: 400px;
+   height: 200px;
+   border: 3px solid #73AD21;
+  }
+
+  .travelers-count-section-absolute {
+   position: absolute;
+   top: -18px;
+   left: 75px;
+   border: 3px solid #73AD21;
+  }
+
+  /* Hide the absolute section by default */
+  .travelers-count-section-absolute {
+   display: none;
+  }
+ </style>
+</head>
+
+<body>
+
+ <div class="travelers-section-position-relative">
+  <!-- This div is clickable to show the travelers form -->
+ </div>
+ <div class="travelers-count-section-absolute">
+  <div class="travelers-form">
+   <h4>Travelers</h4>
+   <div class="row">
+    <label for="adults">Adults:</label>
+    <button class="decrement-button" disabled>-</button>
+    <span id="adult-count">2</span>
+    <button class="increment-button">+</button>
+   </div>
+   <div class="row">
+    <label for="children">Children (Ages 0-17):</label>
+    <button class="decrement-button" disabled>-</button>
+    <span id="children-count">2</span>
+    <button class="increment-button">+</button>
+   </div>
+   <div class="row">
+    <input type="checkbox" id="pets" name="pets">
+    <label for="pets">I am traveling with pets</label>
+   </div>
+   <button type="submit" class="done-button">Done</button>
+  </div>
+ </div>
+
+ <script>
+  const adultCountElement = document.getElementById("adult-count");
+  const childrenCountElement = document.getElementById("children-count");
+
+  const incrementAdultCount = () => {
+   const currentCount = parseInt(adultCountElement.textContent);
+   adultCountElement.textContent = currentCount + 1;
+  };
+
+  const decrementAdultCount = () => {
+   const currentCount = parseInt(adultCountElement.textContent);
+   if (currentCount > 0) {
+    adultCountElement.textContent = currentCount - 1;
+   }
+  };
+
+  const incrementChildrenCount = () => {
+   const currentCount = parseInt(childrenCountElement.textContent);
+   childrenCountElement.textContent = currentCount + 1;
+  };
+
+  const decrementChildrenCount = () => {
+   const currentCount = parseInt(childrenCountElement.textContent);
+   if (currentCount > 0) {
+    childrenCountElement.textContent = currentCount - 1;
+   }
+  };
+
+  const incrementButtons = document.querySelectorAll(".increment-button");
+  const decrementButtons = document.querySelectorAll(".decrement-button");
+
+  incrementButtons.forEach(button => {
+   button.addEventListener("click", () => {
+    if (button.parentElement.querySelector("#adult-count")) {
+     incrementAdultCount();
+     if (adultCountElement.textContent > 0) {
+      button.parentElement.querySelector(".decrement-button").disabled = false;
+     }
+    } else {
+     incrementChildrenCount();
+     if (childrenCountElement.textContent > 0) {
+      button.parentElement.querySelector(".decrement-button").disabled = false;
+     }
+    }
+   });
+  });
+
+  decrementButtons.forEach(button => {
+   button.addEventListener("click", () => {
+    if (button.parentElement.querySelector("#adult-count")) {
+     decrementAdultCount();
+     if (adultCountElement.textContent === "0") {
+      button.disabled = true;
+     }
+    } else {
+     decrementChildrenCount();
+     if (childrenCountElement.textContent === "0") {
+      button.disabled = true;
+     }
+    }
+   });
+  });
+
+  // Get the travelers section elements
+  const travelersSection = document.querySelector('.travelers-section-position-relative');
+  const travelersFormSection = document.querySelector('.travelers-count-section-absolute');
+
+  // Toggle visibility of travelers form when clicking the travelers section
+  travelersSection.addEventListener('click', () => {
+   travelersFormSection.style.display = 'block';  // Show the form
+  });
+
+  // Close the form if clicking outside of the form section
+  window.addEventListener('click', (event) => {
+   if (!travelersFormSection.contains(event.target) && !travelersSection.contains(event.target)) {
+    travelersFormSection.style.display = 'none';  // Hide the form
+   }
+  });
+ </script>
+
+</body>
+
+</html>
