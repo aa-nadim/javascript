@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -44,12 +45,12 @@
                   <button type="button" class="form-dropdown-button">
                       <div>
                           <p class="form-label">Region</p>
-                          <p>Portugal</p>
+                          <!-- <p>Portugal</p> -->
                       </div>
                       <span class="form-dropdown-arrow"></span>
                   </button>
-                  <div class="form-dropdown-options">
-                      <div class="form-dropdown-option">Portugal</div>
+                  <div class="form-dropdown-options" id="regionOptions">
+                      <!-- <div class="form-dropdown-option">Portugal</div> -->
                   </div>
               </div>
             </div>
@@ -59,12 +60,12 @@
                   <button type="button" class="form-dropdown-button">
                       <div>
                           <p class="form-label">Currency</p>
-                          <p>EUR</p>
+                          <!-- <p>EUR</p> -->
                       </div>
                       <span class="form-dropdown-arrow"></span>
                   </button>
-                  <div class="form-dropdown-options">
-                      <div class="form-dropdown-option">EUR</div>
+                  <div class="form-dropdown-options" id="currencyOptions">
+                      <!-- <div class="form-dropdown-option">EUR</div> -->
                   </div>
               </div>
             </div>
@@ -145,9 +146,10 @@
           <div class="mobile-dot"></div>
           <div class="mobile-dot"></div>
         </div>
-
         <div class="mobile-image-counter">📷 31</div>
       </div>
+
+
 
       <section class="tabs">
         <a href="#" class="tab active">Overview</a>
