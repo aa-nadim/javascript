@@ -309,3 +309,83 @@ window.onclick = function(event) {
     closeModal();
   }
 }
+
+
+// ---------------------------------------------
+ const adultCountElement = document.getElementById("adult-count");
+  const childrenCountElement = document.getElementById("children-count");
+
+  const incrementAdultCount = () => {
+   const currentCount = parseInt(adultCountElement.textContent);
+   adultCountElement.textContent = currentCount + 1;
+  };
+
+  const decrementAdultCount = () => {
+   const currentCount = parseInt(adultCountElement.textContent);
+   if (currentCount > 0) {
+    adultCountElement.textContent = currentCount - 1;
+   }
+  };
+
+  const incrementChildrenCount = () => {
+   const currentCount = parseInt(childrenCountElement.textContent);
+   childrenCountElement.textContent = currentCount + 1;
+  };
+
+  const decrementChildrenCount = () => {
+   const currentCount = parseInt(childrenCountElement.textContent);
+   if (currentCount > 0) {
+    childrenCountElement.textContent = currentCount - 1;
+   }
+  };
+
+  const incrementButtons = document.querySelectorAll(".increment-button");
+  const decrementButtons = document.querySelectorAll(".decrement-button");
+
+  incrementButtons.forEach(button => {
+   button.addEventListener("click", () => {
+    if (button.parentElement.querySelector("#adult-count")) {
+     incrementAdultCount();
+     if (adultCountElement.textContent > 0) {
+      button.parentElement.querySelector(".decrement-button").disabled = false;
+     }
+    } else {
+     incrementChildrenCount();
+     if (childrenCountElement.textContent > 0) {
+      button.parentElement.querySelector(".decrement-button").disabled = false;
+     }
+    }
+   });
+  });
+
+  decrementButtons.forEach(button => {
+   button.addEventListener("click", () => {
+    if (button.parentElement.querySelector("#adult-count")) {
+     decrementAdultCount();
+     if (adultCountElement.textContent === "0") {
+      button.disabled = true;
+     }
+    } else {
+     decrementChildrenCount();
+     if (childrenCountElement.textContent === "0") {
+      button.disabled = true;
+     }
+    }
+   });
+  });
+
+  // Get the travelers section elements
+  const travelersSection = document.querySelector('.travelers-section-position-relative');
+  const travelersFormSection = document.querySelector('.travelers-count-section-absolute');
+
+  // Toggle visibility of travelers form when clicking the travelers section
+  travelersSection.addEventListener('click', () => {
+   travelersFormSection.style.display = 'block';  // Show the form
+  });
+
+  // Close the form if clicking outside of the form section
+  window.addEventListener('click', (event) => {
+   if (!travelersFormSection.contains(event.target) && !travelersSection.contains(event.target)) {
+    travelersFormSection.style.display = 'none';  // Hide the form
+   }
+  });

@@ -598,10 +598,35 @@
               </div>
             </div>
 
-            <div class="travelers-input">
+            <div class="travelers-input travelers-section-position-relative">
               <div>Travelers</div>
               <div>2 travelers</div>
             </div>
+
+            <!-- -travelers-section-position -->
+            <div class="travelers-count-section-absolute">
+              <div class="travelers-form">
+                <h4>Travelers</h4>
+                <div class="row">
+                  <label for="adults">Adults:</label>
+                  <button class="decrement-button" disabled>-</button>
+                  <span id="adult-count">2</span>
+                  <button class="increment-button">+</button>
+                </div>
+                <div class="row">
+                  <label for="children">Children (Ages 0-17):</label>
+                  <button class="decrement-button" disabled>-</button>
+                  <span id="children-count">2</span>
+                  <button class="increment-button">+</button>
+                </div>
+                <div class="row">
+                  <input type="checkbox" id="pets" name="pets">
+                  <label for="pets">I am traveling with pets</label>
+                </div>
+                <button type="submit" class="done-button">Done</button>
+              </div>
+            </div>
+            <!-- ------------------------------------------------------ -->
 
             <div class="total-section">
               <span>Total</span>

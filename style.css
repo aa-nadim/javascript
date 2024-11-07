@@ -1519,8 +1519,78 @@
   animation-duration: 1.5s;
 }
 
+/* ------------------------------ */
+  .travelers-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #fff;
+   border: 1px solid #ccc;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   width: 300px;
+  }
 
+  .row {
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
+  }
 
+  .row label {
+   margin-right: 10px;
+  }
+
+  .row input[type="number"] {
+   width: 50px;
+   text-align: center;
+  }
+
+  .row button {
+   border: none;
+   background-color: #ccc;
+   padding: 5px 10px;
+   border-radius: 5px;
+   cursor: pointer;
+  }
+
+  .row button:disabled {
+   background-color: #ddd;
+   cursor: not-allowed;
+  }
+
+  .row button:hover {
+   background-color: #bbb;
+  }
+
+  .done-button {
+   background-color: #007bff;
+   color: #fff;
+   padding: 10px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+  }
+
+  .done-button:hover {
+   background-color: #0062cc;
+  }
+
+  .travelers-section-position-relative {
+   position: relative;
+  }
+
+  .travelers-count-section-absolute {
+    position: absolute;
+    top: 1110px;
+    right: 228px;
+  }
+
+  /* Hide the absolute section by default */
+  .travelers-count-section-absolute {
+   display: none;
+  }
 
 
 
