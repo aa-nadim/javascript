@@ -24,14 +24,20 @@ Provides options for sharing the listing via a link or copying the link to the c
 
 Allows users to favorite a listing with a heart icon, which persists across sessions using local storage.
 
-## Files
-
+## Technology stack 
 index.html: The HTML structure of the vacation rental website.
 
 style.css: CSS styles to define the layout, design, and responsiveness of the website.
 
 index.js: JavaScript code that implements the interactive functionalities of the website.
 
+## Project structure
+
+project-folder/
+├── assets/          
+├── index.html       
+├── style.css        
+└── index.js 
 
 ## Getting Started
 
