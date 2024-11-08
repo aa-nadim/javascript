@@ -4,25 +4,25 @@ This repository contains JavaScript code for a vacation rental website. The code
 
 ## Features
 
-# Search Functionality
+### Search Functionality
 
 Region & Currency: Allows users to select their region, and automatically adjusts the currency according to the selected region.
 
 Guest Management: Allows users to specify the number of adults and children.
 
-# Image Gallery
+### Image Gallery
 
 Displays a grid of images with an option to view each image in fullscreen mode.
 
-# Sharing Options 
+### Sharing Options 
 
 Provides options for sharing the listing via a link or copying the link to the clipboard.
 
-# Heart Button 
+### Heart Button 
 
 Allows users to favorite a listing with a heart icon, which persists across sessions using local storage.
 
-# Files
+### Files
 
 index.html: The HTML structure of the vacation rental website.
 
@@ -33,7 +33,7 @@ script.js: JavaScript code that implements the interactive functionalities of th
 
 ## Getting Started
 
-## Getting Started To run the website locally:
+### Getting Started To run the website locally:
 
 1. **Clone the Repository:**
    ```sh
