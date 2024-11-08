@@ -24,7 +24,7 @@ Provides options for sharing the listing via a link or copying the link to the c
 
 Allows users to favorite a listing with a heart icon, which persists across sessions using local storage.
 
-### Files
+## Files
 
 index.html: The HTML structure of the vacation rental website.
 
