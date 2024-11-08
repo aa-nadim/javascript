@@ -26,9 +26,9 @@ Allows users to favorite a listing with a heart icon, which persists across sess
 
 index.html: The HTML structure of the vacation rental website.
 
-styles.css: CSS styles to define the layout, design, and responsiveness of the website.
+style.css: CSS styles to define the layout, design, and responsiveness of the website.
 
-script.js: JavaScript code that implements the interactive functionalities of the website.
+index.js: JavaScript code that implements the interactive functionalities of the website.
 
 
 ## Getting Started
