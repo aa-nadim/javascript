@@ -895,21 +895,42 @@
   right: 0;
 }
 
+
 .important-list {
   list-style: none;
+  padding: 0;
 }
 
 .important-list li {
   margin-bottom: 8px;
-  padding-left: 20px;
-  position: relative;
 }
 
-.important-list li::before {
-  content: '•';
+.faq-question {
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  padding-left: 20px;
+}
+
+.faq-question::before {
+  content: '∧';
   position: absolute;
   left: 0;
+  font-size: 16px;
+  transform: rotate(180deg); /* Upside-down */
+  transition: transform 0.3s ease;
 }
+
+.faq-answer {
+  display: none;
+  margin-top: 5px;
+}
+
+.faq-question.active::before {
+  transform: rotate(0deg); /* Right-side-up when active */
+}
+
+/* --------------------------- */
 
 .faq-section {
   margin-top: 32px;

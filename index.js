@@ -1,25 +1,3 @@
-const modal = document.getElementById("myModal");
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.querySelector(".close-modal-btn");
-
-
-openModalBtn.onclick = function() {
-    modal.style.display = "block";
-};
-
-
-closeModalBtn.onclick = function() {
-    modal.style.display = "none";
-};
-
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
-
-// Mapping of regions (countries) to their official currencies
 const regionCurrencyMap = {
     "Portugal": ["EUR", "UKD"],
     "United States": ["USD"],
@@ -46,12 +24,41 @@ const regionCurrencyMap = {
     "Malaysia": ["MYR"],
     "United Arab Emirates": ["AED"],
 };
-
+const modal = document.getElementById("myModal");
+const openModalBtn = document.getElementById("openModalBtn");
+const closeModalBtn = document.querySelector(".close-modal-btn");
 const regionButton = document.getElementById('regionButton');
 const selectedRegion = document.getElementById('selectedRegion');
 const selectedCurrency = document.querySelector('.selectedCurrency');
 const regionOptions = document.getElementById('regionOptions');
 const currencyOptions = document.getElementById('currencyOptions');
+const heartButton = document.getElementById('heartButton');
+const heartIcon = heartButton.querySelector('.heart-icon');
+const heartButtonMobile = document.getElementById('heartButtonMobile');
+const heartIconMobile = heartButtonMobile.querySelector('.heart-icon');
+const adultCountElement = document.getElementById("adult-count");
+const childrenCountElement = document.getElementById("children-count");
+const incrementButtons = document.querySelectorAll(".increment-button");
+const decrementButtons = document.querySelectorAll(".decrement-button");
+const travelersSection = document.querySelector('.travelers-section-position-relative');
+const travelersFormSection = document.querySelector('.travelers-count-section-absolute');
+const shareContainerSection = document.querySelector('.share-container-section-position-relative');
+const shareContainerUpSection = document.querySelector('.share-container-section-position-absolute');
+const closeButton = document.querySelector('.share-container-close-btn');
+
+openModalBtn.onclick = function() {
+    modal.style.display = "block";
+};
+
+closeModalBtn.onclick = function() {
+    modal.style.display = "none";
+};
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
 
 // Populate the region dropdown options based on regionCurrencyMap
 Object.keys(regionCurrencyMap).forEach(region => {
@@ -108,10 +115,7 @@ window.addEventListener('click', () => {
 
 
 // Get both desktop and mobile buttons and their icons
-const heartButton = document.getElementById('heartButton');
-const heartIcon = heartButton.querySelector('.heart-icon');
-const heartButtonMobile = document.getElementById('heartButtonMobile');
-const heartIconMobile = heartButtonMobile.querySelector('.heart-icon');
+
 
 // Function to update both heart buttons based on 'isLiked' state in localStorage
 function updateHeartButtons() {
@@ -146,27 +150,23 @@ updateHeartButtons();
 let slideIndex = 1;
 showSlides(slideIndex);
 
-// Open modal
+
 document.getElementById("openSlideshowModalBtn").onclick = function() {
   document.getElementById("openSlideshowModal").style.display = "flex";
 }
 
-// Close modal
 function closeModal() {
   document.getElementById("openSlideshowModal").style.display = "none";
 }
 
-// Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-// Display current slide
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-// Show the slides
 function showSlides(n) {
   let slides = document.getElementsByClassName("mySlides");
   if (n > slides.length) {slideIndex = 1}    
@@ -177,7 +177,7 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
 }
 
-// Close modal when clicking outside of the modal content
+
 window.onclick = function(event) {
   const modal = document.getElementById("openSlideshowModal");
   if (event.target === modal) {
@@ -185,114 +185,113 @@ window.onclick = function(event) {
   }
 }
 
+const incrementAdultCount = () => {
+    const currentCount = parseInt(adultCountElement.textContent);
+    adultCountElement.textContent = currentCount + 1;
+};
 
-// ---------------------------------------------
- const adultCountElement = document.getElementById("adult-count");
-  const childrenCountElement = document.getElementById("children-count");
-
-  const incrementAdultCount = () => {
-   const currentCount = parseInt(adultCountElement.textContent);
-   adultCountElement.textContent = currentCount + 1;
-  };
-
-  const decrementAdultCount = () => {
-   const currentCount = parseInt(adultCountElement.textContent);
-   if (currentCount > 0) {
-    adultCountElement.textContent = currentCount - 1;
-   }
-  };
-
-  const incrementChildrenCount = () => {
-   const currentCount = parseInt(childrenCountElement.textContent);
-   childrenCountElement.textContent = currentCount + 1;
-  };
-
-  const decrementChildrenCount = () => {
-   const currentCount = parseInt(childrenCountElement.textContent);
-   if (currentCount > 0) {
-    childrenCountElement.textContent = currentCount - 1;
-   }
-  };
-
-  const incrementButtons = document.querySelectorAll(".increment-button");
-  const decrementButtons = document.querySelectorAll(".decrement-button");
-
-  incrementButtons.forEach(button => {
-   button.addEventListener("click", () => {
-    if (button.parentElement.querySelector("#adult-count")) {
-     incrementAdultCount();
-     if (adultCountElement.textContent > 0) {
-      button.parentElement.querySelector(".decrement-button").disabled = false;
-     }
-    } else {
-     incrementChildrenCount();
-     if (childrenCountElement.textContent > 0) {
-      button.parentElement.querySelector(".decrement-button").disabled = false;
-     }
+const decrementAdultCount = () => {
+    const currentCount = parseInt(adultCountElement.textContent);
+    if (currentCount > 0) {
+        adultCountElement.textContent = currentCount - 1;
     }
-   });
-  });
+};
 
-  decrementButtons.forEach(button => {
-   button.addEventListener("click", () => {
-    if (button.parentElement.querySelector("#adult-count")) {
-     decrementAdultCount();
-     if (adultCountElement.textContent === "0") {
-      button.disabled = true;
-     }
-    } else {
-     decrementChildrenCount();
-     if (childrenCountElement.textContent === "0") {
-      button.disabled = true;
-     }
+const incrementChildrenCount = () => {
+    const currentCount = parseInt(childrenCountElement.textContent);
+    childrenCountElement.textContent = currentCount + 1;
+};
+
+const decrementChildrenCount = () => {
+    const currentCount = parseInt(childrenCountElement.textContent);
+    if (currentCount > 0) {
+        childrenCountElement.textContent = currentCount - 1;
     }
-   });
-  });
+};
 
-  // Get the travelers section elements
-  const travelersSection = document.querySelector('.travelers-section-position-relative');
-  const travelersFormSection = document.querySelector('.travelers-count-section-absolute');
 
-  // Toggle visibility of travelers form when clicking the travelers section
-  travelersSection.addEventListener('click', () => {
-   travelersFormSection.style.display = 'block';  // Show the form
-  });
 
-  // Close the form if clicking outside of the form section
-  window.addEventListener('click', (event) => {
-   if (!travelersFormSection.contains(event.target) && !travelersSection.contains(event.target)) {
+incrementButtons.forEach(button => {
+    button.addEventListener("click", () => {
+    if (button.parentElement.querySelector("#adult-count")) {
+        incrementAdultCount();
+        if (adultCountElement.textContent > 0) {
+        button.parentElement.querySelector(".decrement-button").disabled = false;
+        }
+    } else {
+        incrementChildrenCount();
+        if (childrenCountElement.textContent > 0) {
+        button.parentElement.querySelector(".decrement-button").disabled = false;
+        }
+    }
+    });
+});
+
+decrementButtons.forEach(button => {
+    button.addEventListener("click", () => {
+    if (button.parentElement.querySelector("#adult-count")) {
+        decrementAdultCount();
+        if (adultCountElement.textContent === "0") {
+        button.disabled = true;
+        }
+    } else {
+        decrementChildrenCount();
+        if (childrenCountElement.textContent === "0") {
+        button.disabled = true;
+        }
+    }
+    });
+});
+
+
+travelersSection.addEventListener('click', () => {
+    travelersFormSection.style.display = 'block';  // Show the form
+});
+
+
+window.addEventListener('click', (event) => {
+    if (!travelersFormSection.contains(event.target) && !travelersSection.contains(event.target)) {
     travelersFormSection.style.display = 'none';  // Hide the form
-   }
-  });
+    }
+});
 
-  // ---------------------------------------
-  const shareContainerSection = document.querySelector('.share-container-section-position-relative');
-  const shareContainerUpSection = document.querySelector('.share-container-section-position-absolute');
-  const closeButton = document.querySelector('.share-container-close-btn');
+shareContainerSection.addEventListener('click', () => {
+    shareContainerUpSection.style.display = 'block';
+});
 
-  shareContainerSection.addEventListener('click', () => {
-      shareContainerUpSection.style.display = 'block';
-  });
+closeButton.addEventListener('click', () => {
+    shareContainerUpSection.style.display = 'none'; 
+});
 
-  closeButton.addEventListener('click', () => {
-      shareContainerUpSection.style.display = 'none';  // Hide the form on close button click
-  });
+window.addEventListener('click', (event) => {
+    if (!shareContainerUpSection.contains(event.target) && !shareContainerSection.contains(event.target)) {
+        shareContainerUpSection.style.display = 'none';
+    }
+});
 
-  window.addEventListener('click', (event) => {
-      if (!shareContainerUpSection.contains(event.target) && !shareContainerSection.contains(event.target)) {
-          shareContainerUpSection.style.display = 'none';
-      }
-  });
+// JavaScript to copy link to clipboard
+function copyLinkToClipboard() {
+    const propertyLink = "https://example.com/property/juneau-vacation-home";
 
-  // JavaScript to copy link to clipboard
-  function copyLinkToClipboard() {
-      const propertyLink = "https://example.com/property/juneau-vacation-home";
+    navigator.clipboard.writeText(propertyLink)
+        .then(() => {
+            alert("Link copied to clipboard!");
+        })
+        .catch(err => {
+            console.error("Failed to copy: ", err);
+        });
+}
 
-      navigator.clipboard.writeText(propertyLink)
-          .then(() => {
-              alert("Link copied to clipboard!");
-          })
-          .catch(err => {
-              console.error("Failed to copy: ", err);
-          });
-  }
+document.querySelectorAll(".faq-question").forEach((question) => {
+    question.addEventListener("click", () => {
+        const answer = question.nextElementSibling;
+
+        // Toggle active class for arrow rotation
+        question.classList.toggle("active");
+
+        // Toggle answer visibility
+        answer.style.display = answer.style.display === "block" ? "none" : "block";
+    });
+});
+  
+  
