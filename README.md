@@ -34,6 +34,7 @@ index.js: JavaScript code that implements the interactive functionalities of the
 ## Project structure
 
 project-folder/
+|
 ├── assets/          
 ├── index.html       
 ├── style.css        
