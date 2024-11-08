@@ -4,15 +4,17 @@ This repository contains JavaScript code for a vacation rental website. The code
 
 ## Features
 
-### Search Functionality
-
-Region & Currency: Allows users to select their region, and automatically adjusts the currency according to the selected region.
-
-Guest Management: Allows users to specify the number of adults and children.
-
 ### Image Gallery
 
 Displays a grid of images with an option to view each image in fullscreen mode.
+
+## Region & Currency: 
+
+Allows users to select their region, and automatically adjusts the currency according to the selected region.
+
+## Guest Management: 
+
+Allows users to specify the number of adults and children.
 
 ### Sharing Options 
 
