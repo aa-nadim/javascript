@@ -1471,16 +1471,14 @@
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 750px;
-  
-  margin: 50px auto;
+  margin: 0 auto 20px;
 }
 
 /* Close button at top-left */
 .cross-sign-slide-show-modal {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 80px;
+  left: 203px;
   font-size: 24px;
   color: white;
   cursor: pointer;
@@ -1495,22 +1493,31 @@
 }
 
 .image-prev-btn, .image-next-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
   cursor: pointer;
-  padding: 12px 24px;
-  color: white;
+  padding: 11px 13px;
+  color: #0000ff;
   font-weight: bold;
   font-size: 18px;
-  background-color: rgba(0, 0, 0, 0.8);
-  border: none;
-  border-radius: 5px;
+  background-color: #fff;
   transition: background-color 0.3s;
   user-select: none;
 }
 
-.image-prev-btn:hover, .image-next-btn:hover {
-  background-color: rgba(0, 0, 0, 0.9);
+.slide-image-title{
+  color: white;
+  position: absolute;
+  bottom: 145px;
+  left: 203px;
 }
-
+.slide-image-count {
+  color: white;
+  position: absolute;
+  bottom: 145px;
+  right: 203px;
+}
 /* Fading animation */
 .fade {
   animation-name: fade;

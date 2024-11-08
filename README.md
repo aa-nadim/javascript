@@ -4,19 +4,40 @@ Javascript Assignment
 
 ## Overview
 
-The landing page features an apartment available for rent in Juneau, Alaska. It highlights essential details, including amenities, check-in and check-out times, and host information, along with images and a location map.
+This repository contains JavaScript code for a vacation rental website. The code handles various functionalities including search, guest management, image gallery, sharing options, and more.
 
-## Instructions
+## Search Functionality:
+
+Region & Currency: Allows users to select their region and according to the region, the currency atomaticaly selected.
+
+Guest Management: Allows users to specify the number of adults and children.
+
+Image Gallery: Displays a grid of images with the option to view each image in fullscreen mode.
+
+Sharing Options: Provides options for sharing the listing via a link and copying the link to the clipboard.
+
+Heart Button: Allows users to favorite a listing with a heart icon, which persists across sessions using local storage.
+Files
+
+index.html: The HTML structure of the vacation rental website.
+
+styles.css: CSS styles to define the layout, design, and responsiveness of the website.
+
+script.js: JavaScript code that implements the interactive functionalities of the website.
+
+## Getting Started To run the website locally:
 
 1. **Clone the Repository:**
    ```sh
    git clone https://github.com/aa-nadim/javascript.git
-   cd html-css
+   cd javascript
    ```
 
-### Open the index.html File:
+### Open index.html in a web browser.
 
-##### Open the index.html file in your preferred web browser:
+Live site:
 
-open index.html
-# javascript
+
+## Usage
+
+Click on more show image button in the gallery to view them in fullscreen mode.Manage the number of guests using the guest modal. Use the share button to share the listing link or copy it to the clipboard. Click on the heart button to favorite a listing.
