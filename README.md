@@ -1,6 +1,6 @@
 ## Overview
 
-This repository contains JavaScript code for a vacation rental website. The code handles various functionalities, including search, guest management, an image gallery, sharing options, and more.
+This repository contains JavaScript code for a vacation rental website. The code handles various functionalities, including react option, guest management, an image gallery, sharing options, and more.
 
 ## Features
 
@@ -24,7 +24,8 @@ Provides options for sharing the listing via a link or copying the link to the c
 
 Allows users to favorite a listing with a heart icon, which persists across sessions using local storage.
 
-## Technology stack 
+## Technology stack
+
 index.html: The HTML structure of the vacation rental website.
 
 style.css: CSS styles to define the layout, design, and responsiveness of the website.
