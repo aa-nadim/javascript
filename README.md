@@ -43,7 +43,7 @@ script.js: JavaScript code that implements the interactive functionalities of th
 
 ### Open index.html in a web browser.
 
-Live Site:
+Live Site: https://aa-nadim.github.io/javascript/
 
 
 ## Usage
