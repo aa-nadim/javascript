@@ -83,13 +83,70 @@
     <section class="desktop-gallery-controls">
       <a href="#" class="back-link"> ← See all properties </a>
       <div class="actions">
-        <button class="btn">⎘ Share</button>
+        <button class="btn share-container-section-position-relative">⎘ Share</button>
         <button id="heartButton" class="heart-button btn">
           <span class="heart-icon">♡</span>
           <p>Save</p>
         </button>
       </div>
     </section>
+
+    <div class="share-container-section-position-absolute">
+      <div class="share-container">
+          <div class="share-header">
+              <button class="share-container-close-btn">×</button>
+              <span class="share-text">Share</span>
+          </div>
+
+          <div class="content-card">
+              <img style="width: 103px;" src="assets/1.png" alt="Juneau Vacation Home" class="content-image">
+              <div class="content-text">
+                  <div class="content-title">Juneau Vacation Home: Stunning View + Beach Access</div>
+                  <div class="content-location">United States of America</div>
+                  <div class="content-rating">9.8/10</div>
+              </div>
+          </div>
+
+          <div class="share-options">
+              <div class="share-option">
+                  <div class="icon-circle messages">
+                      <div style="color: white;">💬</div>
+                  </div>
+                  <span>Messages</span>
+              </div>
+              <div class="share-option">
+                  <div class="icon-circle whatsapp">
+                      <div style="color: white;">📱</div>
+                  </div>
+                  <span>WhatsApp</span>
+              </div>
+              <div class="share-option">
+                  <div class="icon-circle messenger">
+                      <div style="color: white;">✉️</div>
+                  </div>
+                  <span>Messenger</span>
+              </div>
+              <div class="share-option">
+                  <div class="icon-circle facebook">
+                      <div style="color: white;">f</div>
+                  </div>
+                  <span>Facebook</span>
+              </div>
+              <div class="share-option">
+                  <div class="icon-circle twitter">
+                      <div style="color: white;">𝕏</div>
+                  </div>
+                  <span>X</span>
+              </div>
+              <div class="share-option" onclick="copyLinkToClipboard()">
+                  <button class="icon-circle copy-link">
+                      <div style="color: #666;">🔗</div>
+                  </button>
+                  <span>Copy link</span>
+              </div>
+          </div>
+      </div>
+    </div>
 
     <section class="desktop-image-gallery-section">
       <div class="image-grid">
@@ -606,23 +663,34 @@
             <!-- -travelers-section-position -->
             <div class="travelers-count-section-absolute">
               <div class="travelers-form">
-                <h4>Travelers</h4>
-                <div class="row">
+                <h3 style="margin-bottom: 10px;">Travelers</h3>
+
+                <div style="display: flex; justify-content: space-between;margin-bottom: 10px; align-items: center;">
                   <label for="adults">Adults:</label>
-                  <button class="decrement-button" disabled>-</button>
-                  <span id="adult-count">2</span>
-                  <button class="increment-button">+</button>
+                  <div>
+                    <button class="decrement-button" disabled>-</button>
+                    <span id="adult-count">0</span>
+                    <button class="increment-button">+</button>
+                  </div>
                 </div>
-                <div class="row">
-                  <label for="children">Children (Ages 0-17):</label>
-                  <button class="decrement-button" disabled>-</button>
-                  <span id="children-count">2</span>
-                  <button class="increment-button">+</button>
+
+                <div style="display: flex; justify-content: space-between;margin-bottom: 10px; align-items: center;">
+                  <div>
+                    <label for="children">Children </label>
+                    <p>(Ages 0-17):</p>
+                  </div>
+                  <div>
+                    <button class="decrement-button" disabled>-</button>
+                    <span id="children-count">0</span>
+                    <button class="increment-button">+</button>
+                  </div>
                 </div>
-                <div class="row">
+
+                <div style="display: flex; justify-content: start; gap:10px; margin-bottom: 10px; align-items: center;">
                   <input type="checkbox" id="pets" name="pets">
                   <label for="pets">I am traveling with pets</label>
                 </div>
+
                 <button type="submit" class="done-button">Done</button>
               </div>
             </div>

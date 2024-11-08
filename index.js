@@ -389,3 +389,35 @@ window.onclick = function(event) {
     travelersFormSection.style.display = 'none';  // Hide the form
    }
   });
+
+  // ---------------------------------------
+  const shareContainerSection = document.querySelector('.share-container-section-position-relative');
+  const shareContainerUpSection = document.querySelector('.share-container-section-position-absolute');
+  const closeButton = document.querySelector('.share-container-close-btn');
+
+  shareContainerSection.addEventListener('click', () => {
+      shareContainerUpSection.style.display = 'block';
+  });
+
+  closeButton.addEventListener('click', () => {
+      shareContainerUpSection.style.display = 'none';  // Hide the form on close button click
+  });
+
+  window.addEventListener('click', (event) => {
+      if (!shareContainerUpSection.contains(event.target) && !shareContainerSection.contains(event.target)) {
+          shareContainerUpSection.style.display = 'none';
+      }
+  });
+
+  // JavaScript to copy link to clipboard
+  function copyLinkToClipboard() {
+      const propertyLink = "https://example.com/property/juneau-vacation-home";
+
+      navigator.clipboard.writeText(propertyLink)
+          .then(() => {
+              alert("Link copied to clipboard!");
+          })
+          .catch(err => {
+              console.error("Failed to copy: ", err);
+          });
+  }

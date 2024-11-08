@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Interface</title>
+    <style>
+        /* Existing CSS */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        .share-container { width: 300px; background: white; border-radius: 12px; padding: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .share-header { display: flex; align-items: center; margin-bottom: 16px; }
+        .share-container-close-btn { width: 24px; height: 24px; border: none; background: #f0f0f0; border-radius: 50%; margin-right: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .share-text { font-size: 16px; color: #333; }
+        .content-card { display: flex; border: 1px solid #eee; border-radius: 12px; overflow: hidden; margin-bottom: 16px; background: white; }
+        .content-image { object-fit: cover; border-radius: 12px; }
+        .content-text { flex: 1; padding: 12px; display: flex; flex-direction: column; justify-content: center; }
+        .content-title { font-size: 14px; font-weight: bold; margin-bottom: 4px; color: #333; }
+        .content-location { font-size: 12px; color: #666; margin-bottom: 4px; }
+        .content-rating { font-size: 12px; color: #333; }
+        .share-options { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, auto); gap: 16px; margin-top: 8px; }
+        .icon-circle { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 4px; }
+        .messages { background: #00D95F; }
+        .whatsapp { background: #25D366; }
+        .messenger { background: #0099FF; }
+        .facebook { background: #1877F2; }
+        .twitter { background: #000000; }
+        .copy-link { background: #E8F0FE; }
+        .share-option span { font-size: 12px; color: #666; text-align: center; }
+        .share-container-section-position-relative {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            border: 3px solid #73AD21;
+        }
+        .share-container-section-position-absolute {
+            position: absolute;
+            top: -18px;
+            left: 75px;
+            border: 3px solid #73AD21;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="share-container-section-position-relative">
+        <!-- This div is clickable to show the share-container up section -->
+    </div>
+    <div class="share-container-section-position-absolute">
+        <div class="share-container">
+            <div class="share-header">
+                <button class="share-container-close-btn">×</button>
+                <span class="share-text">Share</span>
+            </div>
+
+            <div class="content-card">
+                <img style="width: 103px;" src="assets/1.png" alt="Juneau Vacation Home" class="content-image">
+                <div class="content-text">
+                    <div class="content-title">Juneau Vacation Home: Stunning View + Beach Access</div>
+                    <div class="content-location">United States of America</div>
+                    <div class="content-rating">9.8/10</div>
+                </div>
+            </div>
+
+            <div class="share-options">
+                <div class="share-option">
+                    <div class="icon-circle messages">
+                        <div style="color: white;">💬</div>
+                    </div>
+                    <span>Messages</span>
+                </div>
+                <div class="share-option">
+                    <div class="icon-circle whatsapp">
+                        <div style="color: white;">📱</div>
+                    </div>
+                    <span>WhatsApp</span>
+                </div>
+                <div class="share-option">
+                    <div class="icon-circle messenger">
+                        <div style="color: white;">✉️</div>
+                    </div>
+                    <span>Messenger</span>
+                </div>
+                <div class="share-option">
+                    <div class="icon-circle facebook">
+                        <div style="color: white;">f</div>
+                    </div>
+                    <span>Facebook</span>
+                </div>
+                <div class="share-option">
+                    <div class="icon-circle twitter">
+                        <div style="color: white;">𝕏</div>
+                    </div>
+                    <span>X</span>
+                </div>
+                <div class="share-option" onclick="copyLinkToClipboard()">
+                    <button class="icon-circle copy-link">
+                        <div style="color: #666;">🔗</div>
+                    </button>
+                    <span>Copy link</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const shareContainerSection = document.querySelector('.share-container-section-position-relative');
+        const shareContainerUpSection = document.querySelector('.share-container-section-position-absolute');
+        const closeButton = document.querySelector('.share-container-close-btn');
+
+        shareContainerSection.addEventListener('click', () => {
+            shareContainerUpSection.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+            shareContainerUpSection.style.display = 'none';  // Hide the form on close button click
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!shareContainerUpSection.contains(event.target) && !shareContainerSection.contains(event.target)) {
+                shareContainerUpSection.style.display = 'none';
+            }
+        });
+
+        // JavaScript to copy link to clipboard
+        function copyLinkToClipboard() {
+            const propertyLink = "https://example.com/property/juneau-vacation-home";
+
+            navigator.clipboard.writeText(propertyLink)
+                .then(() => {
+                    alert("Link copied to clipboard!");
+                })
+                .catch(err => {
+                    console.error("Failed to copy: ", err);
+                });
+        }
+    </script>
+</body>
+</html>
