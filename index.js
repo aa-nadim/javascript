@@ -168,15 +168,18 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slides[slideIndex-1].style.display = "block";  
-}
+    let slides = document.getElementsByClassName("mySlides");
+    let totalSlides = slides.length;
 
+    if (n > totalSlides) { slideIndex = 1; }
+    if (n < 1) { slideIndex = totalSlides; }
+    for (let i = 0; i < totalSlides; i++) {
+        slides[i].style.display = "none";
+    }
+    slides[slideIndex - 1].style.display = "block";
+
+    document.getElementById("slideImageCount").innerText = `${slideIndex}/${totalSlides}`;
+}
 
 window.onclick = function(event) {
   const modal = document.getElementById("openSlideshowModal");
