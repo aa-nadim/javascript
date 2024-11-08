@@ -60,7 +60,6 @@ window.onclick = function(event) {
     }
 };
 
-// Populate the region dropdown options based on regionCurrencyMap
 Object.keys(regionCurrencyMap).forEach(region => {
     const optionDiv = document.createElement('div');
     optionDiv.classList.add('form-dropdown-option');
@@ -77,14 +76,12 @@ document.querySelectorAll('.form-dropdown-button').forEach((button) => {
     });
 });
 
-// Update the currency options when a region is selected
 regionOptions.addEventListener('click', (event) => {
     const selectedRegionText = event.target.getAttribute('data-region');
     if (selectedRegionText) {
         selectedRegion.textContent = selectedRegionText;
         const currencies = regionCurrencyMap[selectedRegionText];
 
-        // Clear and update currency dropdown options
         currencyOptions.innerHTML = '';
         currencies.forEach(currency => {
             const optionDiv = document.createElement('div');
@@ -93,12 +90,11 @@ regionOptions.addEventListener('click', (event) => {
             currencyOptions.appendChild(optionDiv);
         });
 
-        // Set the first currency as the default selected currency
         selectedCurrency.textContent = currencies[0];
     }
 });
 
-// Update the displayed currency when a currency option is clicked
+
 currencyOptions.addEventListener('click', (event) => {
     const selectedCurrencyText = event.target.textContent;
     if (selectedCurrencyText) {
@@ -106,22 +102,16 @@ currencyOptions.addEventListener('click', (event) => {
     }
 });
 
-// Close dropdowns when clicking outside
 window.addEventListener('click', () => {
     document.querySelectorAll('.form-dropdown-options').forEach(options => {
         options.classList.remove('show');
     });
 });
 
-
-// Get both desktop and mobile buttons and their icons
-
-
 // Function to update both heart buttons based on 'isLiked' state in localStorage
 function updateHeartButtons() {
   const isLiked = localStorage.getItem('isLiked') === 'true';
 
-  // Update icons and classes for both buttons
   heartIcon.textContent = isLiked ? '❤' : '♡';
   heartButton.classList.toggle('active', isLiked);
 
@@ -129,24 +119,20 @@ function updateHeartButtons() {
   heartButtonMobile.classList.toggle('active', isLiked);
 }
 
-// Function to handle click event for toggling like state
 function toggleHeartState() {
   const isLiked = localStorage.getItem('isLiked') !== 'true';
   localStorage.setItem('isLiked', isLiked.toString());
 
-  // Update both heart buttons after toggling the state
   updateHeartButtons();
 }
 
-// Add event listeners for both buttons
 heartButton.onclick = toggleHeartState;
 heartButtonMobile.onclick = toggleHeartState;
 
-// Initial setup
 updateHeartButtons();
 
 
-// Initialize slide index
+
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -248,13 +234,13 @@ decrementButtons.forEach(button => {
 
 
 travelersSection.addEventListener('click', () => {
-    travelersFormSection.style.display = 'block';  // Show the form
+    travelersFormSection.style.display = 'block'; 
 });
 
 
 window.addEventListener('click', (event) => {
     if (!travelersFormSection.contains(event.target) && !travelersSection.contains(event.target)) {
-    travelersFormSection.style.display = 'none';  // Hide the form
+    travelersFormSection.style.display = 'none'; 
     }
 });
 
@@ -272,7 +258,6 @@ window.addEventListener('click', (event) => {
     }
 });
 
-// JavaScript to copy link to clipboard
 function copyLinkToClipboard() {
     const propertyLink = "https://example.com/property/juneau-vacation-home";
 
@@ -288,11 +273,7 @@ function copyLinkToClipboard() {
 document.querySelectorAll(".faq-question").forEach((question) => {
     question.addEventListener("click", () => {
         const answer = question.nextElementSibling;
-
-        // Toggle active class for arrow rotation
         question.classList.toggle("active");
-
-        // Toggle answer visibility
         answer.style.display = answer.style.display === "block" ? "none" : "block";
     });
 });
